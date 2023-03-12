@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const slice = createSlice({
-  name: 'HomeState',
+  name: 'Home',
   initialState,
   reducers: {
     test: (state, action) => {

@@ -4,8 +4,12 @@ import { test } from './slice'
 import { fetchHome } from './api';
 
 function* home(action) {
-  const response = yield call(fetchHome, action.payload);
-  yield put(test(response));
+  try {
+    const response = yield call(fetchHome, action.payload);
+    yield put(test(response));
+  } catch(err) {
+    yield put({HOME_TEST, err})
+  }
 }
 
 function* mySaga() {
